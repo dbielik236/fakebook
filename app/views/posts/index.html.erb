@@ -1,11 +1,9 @@
-
-
 <% if user_signed_in?%>
   <h1>Posts</h1>
   
   <div id="posts">
     <% @posts.each do |post| %>
-      <%= render post %>
+      <%= post.body %>
       <p>
         <%= link_to "Show this post", post %>
       </p>
@@ -16,7 +14,7 @@
 
 <% else %>
 
-<h1>FakeBook</h1>
-<p> Sign up or sign in by clicking the links above</p>
-
+  <h1>FakeBook</h1>
+  <p> Sign up or sign in by clicking the links above</p>
+  
 <% end %>
