@@ -1,9 +1,16 @@
 <h1>All Users</h1>
 
 <% @users.each do |user| %>
-    <% unless user.id == current_user.id %>
-        <%= user.first_name %> <%= user.last_name %>
-        <br>
+     <% unless user.id == current_user.id %>    
+     <div class="card">
+        <div class="card-body">
+            <%= user.first_name %> <%= user.last_name %>
+        </div>
+    </div>    
         <br>
     <% end %>
 <% end %>
+
+
+  
+  
