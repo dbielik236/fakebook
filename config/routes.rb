@@ -6,6 +6,12 @@ Rails.application.routes.draw do
   
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Defines the root path route ("/")
+  get '/friends', to: 'users#friends', as: :friends
+  scope '/friends', as: :friends do
+    get 'find', to: 'users#index'
+    # get 'requests', to: 'users#friend_requests'
+  end
+
   root to: "posts#index"
 end
+
