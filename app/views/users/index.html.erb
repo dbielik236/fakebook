@@ -1,11 +1,44 @@
+<h1>Pending Requests</h1>
+<% if current_user.friend_requests[0].nil? %>
+    <p> You don't have any pending requests right now. </p>
+<% else %> 
+  <% current_user.friend_requests.each do |request| %>
+      <div class="card">
+        <div class="card-body">
+        <%= User.find(request.recipient_id).first_name %>  <%= User.find(request.recipient_id).last_name %>
+        </div>
+      </div>
+      <br>
+  <% end %>
+<% end %>
+
+<h1> Friend Requests </h1>
+<% if current_user.friend_invitations[0].nil? %>
+    <p> You don't have any friend requests from any other users right now. </p>
+<% else %>    
+    <% current_user.friend_invitations.each do |invitation| %>
+      <div class="card">
+        <div class="card-body">
+        <%= User.find(invitation.requester_id).first_name %>  <%= User.find(invitation.requester_id).last_name %>
+        </div>
+      </div>
+      <br>
+  <% end %>
+<% end %>
+
+
+
 <h1>All Users</h1>
 
 <% @users.each do |user| %>
-     <% unless user.id == current_user.id %>    
+    
+    <% unless user.id == current_user.id || 
+    current_user.friend_invitations.where(requester_id: user.id)[0].nil? == false ||
+    current_user.friend_requests.where(recipient_id: user.id)[0].nil? == false %>     
      <div class="card">
         <div class="card-body">
             <%= user.first_name %> <%= user.last_name %>
-            <%= button_to "Send", friend_requests_path, action: "create", method: :post, params: { recipient_id: user.id } %>
+            <%= button_to "Send Friend Request", friend_requests_path, method: :post, params: { recipient_id: user.id } %>
         </div>
     </div>    
         <br>
@@ -13,5 +46,5 @@
 <% end %>
 
 
-  
-  
+
+      
