@@ -10,6 +10,4 @@ class FriendshipsController < ApplicationController
           redirect_back fallback_location: user_url(current_user), alert: "Sorry, your request could not be completed. (#{friendship.errors.full_messages.join(', ')}.)"
         end
     end
-
-
 end

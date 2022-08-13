@@ -10,21 +10,20 @@
 
         
         <% if user_signed_in? %>
-          
-          <li class="nav-item">
-            <%= link_to 'Update Profile', edit_user_registration_path, class:"btn btn-link nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= button_to("Log Out", destroy_user_session_path, class:"btn btn-link nav-link", method: :delete) %>
-          </li>
           <li class="nav-item">
             <%= link_to 'Find Friends', users_path, class:"btn btn-link nav-link" %>
           </li>
-
-
+          
+              <li class="nav-item">
+                <%= link_to 'Update Profile', edit_user_registration_path, class:"btn btn-link nav-link" %>
+              </li>
+              <li class="nav-item">
+                <%= button_to("Log Out", destroy_user_session_path, class:"btn btn-link nav-link", method: :delete) %>
+              </li>
+           
         <% else %>
           <li class="nav-item">
-            <%= link_to 'Log In', new_user_session_path, class:"btn btn-link nav-link" %>
+            <%= link_to 'Log In', new_user_session_path, class:"btn btn-link nav-link " %>
           </li>
   
            <li class="nav-item">

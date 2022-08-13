@@ -1,3 +1,8 @@
+<% current_user.friends(current_user.id).each do |friend| %>
+  <%= User.find(friend.friend_b_id).first_name %>  <%= User.find(friend.friend_b_id).last_name %>
+  
+<% end %>
+
 <h1>Pending Requests</h1>
 <% if current_user.friend_requests[0].nil? %>
     <p> You don't have any pending requests right now. </p>
@@ -30,7 +35,6 @@
 
 
 <h1>All Users</h1>
-
 <% @users.each do |user| %>
     
     <% unless user.id == current_user.id || 
@@ -45,6 +49,8 @@
         <br>
     <% end %>
 <% end %>
+
+
 
 
 
