@@ -23,4 +23,8 @@ class User < ApplicationRecord
   has_many :requesting_friends,
            through: :friend_invitations,
            source: :requester
+
+  has_many :friendships,
+           dependent: :destroy
+
 end
