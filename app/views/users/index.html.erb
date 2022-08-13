@@ -6,6 +6,7 @@
       <div class="card">
         <div class="card-body">
         <%= User.find(request.recipient_id).first_name %>  <%= User.find(request.recipient_id).last_name %>
+        <%= button_to "Accept Friend Request", friendships_path, method: :post, params: { friend_b_id: User.find(request.recipient_id).id } %>
         </div>
       </div>
       <br>
