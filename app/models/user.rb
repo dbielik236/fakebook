@@ -34,4 +34,10 @@ class User < ApplicationRecord
     list_a + list_b
   end
 
+  def friend?(user_id, current_user_id)
+    list_a = Friendship.where(friend_a_id: user_id, friend_b_id: current_user_id)
+    list_b = Friendship.where(friend_b_id: user_id, friend_a_id: current_user_id)
+    list_a[0].nil? == false || list_b[0].nil? == false
+  end
+
 end
