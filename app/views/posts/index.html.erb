@@ -11,6 +11,7 @@
           <div class="card">
             <div class="card-header">
               <%= post.user.first_name%> <%=post.user.last_name %>
+              <%= link_to "View Profile", user_path(post.user.id), class: "btn btn-primary" %>
               <br>
               <%= post.created_at.strftime("%B %d, %Y at %l:%M %P") %>
             </div>
