@@ -1,25 +1,26 @@
 <% if user_signed_in?%>
   <h1>My Feed</h1>
   
-  <%= button_to "Click here to post!", new_post_path, class: "btn btn-secondary"%>
+  <%= link_to "Click here to post!", new_post_path, class: "btn btn-secondary"%>
   <br>
   <div id="posts">
     <% @posts.each do |post| %>
-      
-      
-      <div class="card">
-        <div class="card-header">
-          <%= post.user.first_name%> <%=post.user.last_name %>
-          <br>
-          <%= post.created_at.strftime("%B %d, %Y at %l:%M %P") %>
-        </div>
-        <div class="card-body">
-          <p class="card-text"><%= post.body %></p>
-          <%= link_to "Show this post", post %>
-        </div>
-      </div>
+
+      <% if post.user.friend?(post.user.id, current_user.id) || post.user.id == current_user.id%>
+          <div class="card">
+            <div class="card-header">
+              <%= post.user.first_name%> <%=post.user.last_name %>
+              <br>
+              <%= post.created_at.strftime("%B %d, %Y at %l:%M %P") %>
+            </div>
+            <div class="card-body">
+              <p class="card-text"><%= post.body %></p>
+
+              <%= link_to "Show this post", post %>
+            </div>
+          </div>
         
-     
+      <% end %>   
     <% end %>
   </div>
 
