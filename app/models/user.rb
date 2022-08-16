@@ -27,6 +27,9 @@ class User < ApplicationRecord
   has_many :friendships,
            dependent: :destroy
 
+  has_many :comments,
+           dependent: :destroy
+
 
   def friends(id)
     list_a = Friendship.where(friend_a_id: id)
