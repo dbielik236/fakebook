@@ -13,6 +13,8 @@
     </div>
   </div>     
 
+  <%= render 'comments/form', comment: @post.comments.build, submit: 'Comment' %>
+
 <div>
   <% if @post.user.id == current_user.id %>
     <%= button_to "Delete post", @post, method: :delete, class: "btn btn-danger" %>
