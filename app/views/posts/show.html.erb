@@ -1,24 +1,25 @@
 <p style="color: green"><%= notice %></p>
 
-  <div class="card">
-    <div class="card-header">
-      
-       <%= link_to (@post.user.first_name + " " + @post.user.last_name), user_path(@post.user.id)%>
-      <br>
-      <%= @post.created_at.strftime("%B %d, %Y at %l:%M %P") %>
-    </div>
-    <div class="card-body">
-      <p class="card-text"><%= @post.body %></p>
+<div class="card">
+  <div class="card-header">
+    
+     <%= link_to (@post.user.first_name + " " + @post.user.last_name), user_path(@post.user.id)%>
+    <br>
+    <%= @post.created_at.strftime("%B %d, %Y at %l:%M %P") %>
+  </div>
+  <div class="card-body">
+    <p class="card-text"><%= @post.body %></p>
+  
+  <%= render 'comments/comment', post: @post %>
+   
 
-    </div>
-  </div>     
-
-  <%= render 'comments/form', comment: @post.comments.build, submit: 'Comment' %>
-
+<%= render 'comments/form', comment: @post.comments.build, submit: 'Comment' %>
+</div>
+</div>  
 <div>
   <% if @post.user.id == current_user.id %>
     <%= button_to "Delete post", @post, method: :delete, class: "btn btn-danger" %>
   <% end %>
   <br>
-  <%= link_to "Back", :back , class: "btn btn-secondary" %>
+  <%= link_to "Back to feed", posts_path , class: "btn btn-secondary" %>
 </div>

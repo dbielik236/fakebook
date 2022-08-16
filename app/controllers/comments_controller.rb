@@ -1,15 +1,14 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
-
+  
   def new
     @post = Post.find(params[:post_id])
   end
 
   def create
     @comment = current_user.comments.build(comment_params)
-    
     flash.alert = "Error: #{@comment.errors.full_messages.join}" unless @comment.save
-    redirect_to root_path
+    redirect_to post_path(@comment.commentable_id)
   end
 
   def destroy

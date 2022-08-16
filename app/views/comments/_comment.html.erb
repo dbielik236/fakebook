@@ -1,0 +1,6 @@
+<p> Comments: </p>
+<% post.comments.each do |comment| %>
+    <%= link_to (User.find(comment.user_id).first_name + " " + User.find(comment.user_id).last_name), user_path(comment.user_id) %>
+    said: <%= comment.body %>
+    <br>
+<% end %>
