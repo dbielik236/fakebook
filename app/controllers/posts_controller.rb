@@ -59,6 +59,13 @@ class PostsController < ApplicationController
   end
 
   private
+    def full_name
+      first_name = @post.user.first_name
+      last_name = @post.user.last_name
+      first_name + last_name
+    end
+
+
     # Use callbacks to share common setup or constraints between actions.
     def set_post
       @post = Post.find(params[:id])
