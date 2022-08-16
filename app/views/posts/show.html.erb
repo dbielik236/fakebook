@@ -2,8 +2,8 @@
 
   <div class="card">
     <div class="card-header">
-      <%= @post.user.first_name%> <%=@post.user.last_name %>
-      <%= link_to "View Profile", user_path(@post.user.id), class: "btn btn-primary" %>
+      
+       <%= link_to (@post.user.first_name + " " + @post.user.last_name), user_path(@post.user.id)%>
       <br>
       <%= @post.created_at.strftime("%B %d, %Y at %l:%M %P") %>
     </div>
@@ -14,10 +14,9 @@
   </div>     
 
 <div>
-  
   <% if @post.user.id == current_user.id %>
     <%= button_to "Delete post", @post, method: :delete, class: "btn btn-danger" %>
   <% end %>
   <br>
-  <%= link_to "Back", posts_path, class: "btn btn-secondary" %>
+  <%= link_to "Back to feed", posts_path, class: "btn btn-secondary" %>
 </div>
