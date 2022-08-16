@@ -9,7 +9,7 @@
 <% end %>
 
 <br>
-<%= link_to "Back to feed", posts_path, class: "btn btn-secondary" %>
+<%= link_to "Back", :back , class: "btn btn-secondary" %>
 <% if current_user == @user %>
   <%= link_to 'Update Account Information', edit_user_registration_path, class: "btn btn-secondary" %>
 <% end %>

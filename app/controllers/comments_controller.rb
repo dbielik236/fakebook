@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
     end
 
     def create
-      comment = current_user.comments.build(comment_params)
+      @comment = current_user.comments.build(comment_params)
     end
 
     def destroy

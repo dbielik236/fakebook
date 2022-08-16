@@ -3,11 +3,9 @@
   <div class="card">
     <div class="card-body">
     <% if current_user.id == friend.friend_a_id %>
-      <%= User.find(friend.friend_b_id).first_name %>  <%= User.find(friend.friend_b_id).last_name %>
-      <%= link_to "View Profile", user_path(friend.friend_b_id), class: "btn btn-primary" %>
+      <%= link_to (User.find(friend.friend_b_id).first_name + " " + User.find(friend.friend_b_id).last_name), user_path(friend.friend_b_id)%>
     <% else %>
-      <%= User.find(friend.friend_a_id).first_name %>  <%= User.find(friend.friend_a_id).last_name %>
-      <%= link_to "View Profile", user_path(friend.friend_a_id), class: "btn btn-primary" %>
+      <%= link_to (User.find(friend.friend_a_id).first_name + " " + User.find(friend.friend_a_id).last_name), user_path(friend.friend_a_id)%>
     <% end %>
     </div>
   </div>
