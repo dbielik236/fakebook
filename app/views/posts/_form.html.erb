@@ -1,22 +1,26 @@
-<%= form_with(model: post) do |form| %>
-  <% if post.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
-
-      <ul>
-        <% post.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="form-group">
-    <%= %>
-    <%= form.text_area :body, autofocus: true, placeholder: "Type your message here", class: "form-control" %>
+<div class="card">
+  <div class="card-body">
+    <%= form_with(model: post) do |form| %>
+      <% if post.errors.any? %>
+        <div style="color: red">
+          <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+    
+          <ul>
+            <% post.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+    
+      <div class="form-group">
+        <%= %>
+        <%= form.text_area :body, autofocus: true, placeholder: "What's on your mind, #{current_user.first_name}?", class: "form-control" %>
+      </div>
+      <br>
+      <div>
+        <%= form.submit "Post to feed", class:'btn btn-primary'%>
+      </div>
+    <% end %>
   </div>
-  <br>
-  <div>
-    <%= form.submit "Post to feed", class:'btn btn-primary'%>
-  </div>
-<% end %>
+</div>  
