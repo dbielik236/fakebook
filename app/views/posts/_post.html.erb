@@ -1,17 +1,18 @@
 <div id="<%= dom_id post %>">
 
   <div class="card">
-    <div class="card-header">
+    <div class="card-header bg-white">
     
-      <%= link_to (post.user.first_name + " " + post.user.last_name), user_path(post.user.id)%>
+      <strong><%= link_to (post.user.first_name + " " + post.user.last_name), user_path(post.user.id)%></strong>
       <br>
+      
       <%= post.created_at.strftime("%B %d, %Y at %l:%M %P") %>
     </div>
     <div class="card-body">
     <p class="card-text"><%= post.body %></p>
+    <hr>
     <%= render 'comments/comment', post: post %>
-    <br>
-    <br>
+    
     <%= link_to "Add comment", post, class: "btn btn-secondary btn-sm" %>
 
     </div>

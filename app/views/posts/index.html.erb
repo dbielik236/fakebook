@@ -1,16 +1,17 @@
 <% if user_signed_in?%>
-  <%= render "form", post: @post %>
+  <div class="mx-auto" style="width: 20rem"> 
+    <%= render "form", post: @post %>
+    
+    <br/>
+    <div id="posts">
+      <% @posts.each do |post| %>
   
-  <br/>
-  <div id="posts">
-    <% @posts.each do |post| %>
-
-      <% if post.user.friend?(post.user.id, current_user.id) || post.user.id == current_user.id%>
-        <%= render post %>
-      <% end %>   
-    <% end %>
+        <% if post.user.friend?(post.user.id, current_user.id) || post.user.id == current_user.id%>
+          <%= render post %>
+        <% end %>   
+      <% end %>
+    </div>
   </div>
-
 <% else %>
 
   <% controller.redirect_to new_user_session_path %>

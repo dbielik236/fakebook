@@ -1,6 +1,8 @@
-<p> Comments: </p>
 <% post.comments.each do |comment| %>
-    <%= link_to (User.find(comment.user_id).first_name + " " + User.find(comment.user_id).last_name), user_path(comment.user_id) %>
-    said: <%= comment.body %>
-    <br>
+    <div class="card bg-light" style="margin-bottom:10px;">
+      <div class="card-body" style="padding:8px">
+        <strong><%= link_to (User.find(comment.user_id).first_name + " " + User.find(comment.user_id).last_name), user_path(comment.user_id) %></strong>
+        <%= comment.body %>
+      </div>  
+    </div>
 <% end %>
