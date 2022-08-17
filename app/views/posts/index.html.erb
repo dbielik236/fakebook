@@ -15,7 +15,6 @@
 
 <% else %>
 
-  <h1>FakeBook</h1>
-  <p> Sign up or log in by clicking the links above</p>
+  <% controller.redirect_to new_user_session_path %>
   
 <% end %>
