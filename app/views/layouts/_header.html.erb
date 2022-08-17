@@ -11,13 +11,13 @@
         
         <% if user_signed_in? %>
           <li class="nav-item">
-            <%= link_to 'Find Friends', users_path, class:"btn btn-link nav-link" %>
+            <%= link_to 'Friends', users_path, class:"btn btn-link nav-link" %>
           </li>
           
               <li class="nav-item">
                 <%= link_to 'Profile', user_path(current_user.id), class:"btn btn-link nav-link" %>
               </li>
-              <li class="nav-item">
+              <li class="nav-item text-center">
                 <%= button_to("Log Out", destroy_user_session_path, class:"btn btn-link nav-link", method: :delete) %>
               </li>
            
