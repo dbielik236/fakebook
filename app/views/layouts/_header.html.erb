@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-primary navbar-dark">
   <div class="container-fluid">
-    <%= link_to 'FakeBook', root_path, class:"navbar-brand" %>
+    <%= link_to 'fakebook', root_path, class:"navbar-brand" %>
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -11,15 +11,17 @@
         
         <% if user_signed_in? %>
           <li class="nav-item">
+            <%= link_to 'Home', root_path, class:"btn btn-link nav-link" %>
+          </li>
+          <li class="nav-item">
             <%= link_to 'Friends', users_path, class:"btn btn-link nav-link" %>
           </li>
-          
-              <li class="nav-item">
-                <%= link_to 'Profile', user_path(current_user.id), class:"btn btn-link nav-link" %>
-              </li>
-              <li class="nav-item text-center">
-                <%= button_to("Log Out", destroy_user_session_path, class:"btn btn-link nav-link", method: :delete) %>
-              </li>
+          <li class="nav-item">
+            <%= link_to 'Profile', user_path(current_user.id), class:"btn btn-link nav-link" %>
+          </li>
+          <li class="nav-item text-center">
+            <%= button_to("Log Out", destroy_user_session_path, class:"btn btn-link nav-link", method: :delete) %>
+          </li>
            
         <% else %>
           <li class="nav-item">

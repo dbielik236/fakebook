@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card text-center mx-auto" style="width: 20rem">
   <h2 class="card-header">fakebook</h2>
   <div class="card-body">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -19,7 +19,7 @@
       </div>
       <br>
       <div class="actions">
-        <%= f.submit "Log in", class:'btn btn-primary btn-block' %>
+        <%= f.submit "Log in", class:'btn btn-primary', style: "width: 100%" %>
       </div>
     <% end %>
     <hr>
