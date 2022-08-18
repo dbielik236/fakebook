@@ -1,7 +1,7 @@
-<% current_user.friends(current_user.id).each do |friend| %>
+<% user.friends(user.id).each do |friend| %>
   <div class="card">
     <div class="card-body">
-    <% if current_user.id == friend.friend_a_id %>
+    <% if user.id == friend.friend_a_id %>
       <%= link_to (User.find(friend.friend_b_id).first_name + " " + User.find(friend.friend_b_id).last_name), user_path(friend.friend_b_id)%>
     <% else %>
       <%= link_to (User.find(friend.friend_a_id).first_name + " " + User.find(friend.friend_a_id).last_name), user_path(friend.friend_a_id)%>

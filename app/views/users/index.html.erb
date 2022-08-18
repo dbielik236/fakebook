@@ -1,5 +1,5 @@
 <h1> Friends </h1>
-<%= render 'friends'%>
+<%= render 'friends', user: current_user %>
 
 <h1> Sent Requests (Awaiting friend approval) </h1>
 <%= render 'sent_requests' %>
@@ -9,9 +9,3 @@
 
 <h1>All Users</h1>
 <%= render 'all_users' %>
-
-
-
-
-
-      
