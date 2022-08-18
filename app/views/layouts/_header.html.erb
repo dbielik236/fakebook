@@ -16,6 +16,11 @@
           <li class="nav-item">
             <%= link_to 'Friends', users_path, class:"btn btn-link nav-link" %>
           </li>
+          <% unless current_user.friend_invitations.count == 0 %>
+            <li class="nav-item">
+              <span class="badge badge-light"> <%= current_user.friend_invitations.count %> </span>
+            </li>
+          <% end %>
           <li class="nav-item">
             <%= link_to 'Profile', user_path(current_user.id), class:"btn btn-link nav-link" %>
           </li>

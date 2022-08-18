@@ -1,0 +1,14 @@
+<% @users.each do |user| %> 
+    <% unless user.id == current_user.id || 
+    current_user.friend_invitations.where(requester_id: user.id)[0].nil? == false ||
+    current_user.friend_requests.where(recipient_id: user.id)[0].nil? == false ||
+    user.friend?(user.id, current_user.id) %>     
+     <div class="card">
+        <div class="card-body">
+            <%= user.first_name %> <%= user.last_name %>
+            <%= button_to "Send Friend Request", friend_requests_path, method: :post, params: { recipient_id: user.id }, class:"btn btn-primary" %>
+        </div>
+    </div>    
+        <br>
+    <% end %>
+<% end %>
