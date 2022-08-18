@@ -1,5 +1,5 @@
 <% if current_user.friend_invitations[0].nil? %>
-    <p> You don't have any pending friend requests right now.. </p>
+    <p>You don't have any pending friend requests right now.</p>
 <% else %>    
     <% current_user.friend_invitations.each do |invitation| %>
       <div class="card">
