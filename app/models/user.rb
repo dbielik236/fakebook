@@ -25,7 +25,8 @@ class User < ApplicationRecord
            source: :requester
 
   has_many :friendships,
-           dependent: :destroy
+           ->(user) { unscope(:where).where('friend_a_id = ? OR friend_b_id = ?', user.id, user.id) },
+          dependent: :destroy
 
   has_many :comments,
            dependent: :destroy
