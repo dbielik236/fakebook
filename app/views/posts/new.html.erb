@@ -1,7 +1,10 @@
-<h1>What's on your mind, <%= current_user.first_name %>?</h1>
-<br>
-<%= render "form", post: @post %>
-<br>
+<% if @post.errors.any? %>
+  <div class="alert alert-warning" role="alert">
+      <% @post.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+      <% end %>
+</div>
+<% end %>
 <div>
   <%= link_to "Back", :back , class:'btn btn-secondary' %>
 </div>
