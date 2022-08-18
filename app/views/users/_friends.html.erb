@@ -1,18 +1,12 @@
-<% user.friends(user.id).in_groups_of(3, false).each do |group| %>
-  <div class="row">
-    <% group.each do |friend| %>
-      <div class="col">
-        <div class="card">
-          <div class="card-body">
-          <% if user.id == friend.friend_a_id %>
-            <%= link_to (User.find(friend.friend_b_id).first_name + " " + User.find(friend.friend_b_id).last_name), user_path(friend.friend_b_id)%>
-          <% else %>
-            <%= link_to (User.find(friend.friend_a_id).first_name + " " + User.find(friend.friend_a_id).last_name), user_path(friend.friend_a_id)%>
-          <% end %>
-          </div>
-        </div>
-      </div>  
-    <% end %>  
-  </div>    
+<% user.friends(user.id).each do |friend| %>
+  <div class="card" style="width: 20rem">
+    <div class="card-body" style="padding: 10px">
+    <% if user.id == friend.friend_a_id %>
+      <%= link_to (User.find(friend.friend_b_id).first_name + " " + User.find(friend.friend_b_id).last_name), user_path(friend.friend_b_id)%>
+    <% else %>
+      <%= link_to (User.find(friend.friend_a_id).first_name + " " + User.find(friend.friend_a_id).last_name), user_path(friend.friend_a_id)%>
+    <% end %>
+    </div>
+  </div>
   <br>
 <% end %>

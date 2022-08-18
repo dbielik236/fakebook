@@ -2,8 +2,8 @@
     <p>All of your friend requests have been accepted!</p>
 <% else %> 
   <% current_user.friend_requests.each do |request| %>
-      <div class="card">
-        <div class="card-body">
+      <div class="card" style="width: 20rem">
+        <div class="card-body" style="padding: 10px">
         <%= User.find(request.recipient_id).first_name %>  <%= User.find(request.recipient_id).last_name %>
         
         </div>
