@@ -6,7 +6,7 @@
       <strong><%= link_to (post.user.first_name + " " + post.user.last_name), user_path(post.user.id)%></strong>
       <br>
       
-      <small class="text-muted"><%= post.created_at.strftime("%B %d, %Y at %l:%M %P") %></small>
+      <small class="text-muted"><%= post.created_at.in_time_zone("America/New_York").strftime("%B %d, %Y at %l:%M %P %Z") %></small>
     </div>
     <div class="card-body">
     <p class="card-text"><%= post.body %></p>
