@@ -6,7 +6,8 @@
     user.friend?(user.id, current_user.id) %>     
      <div class="card" style="margin: 10px;">
         <div class="card-header">
-            <%= user.first_name %> <%= user.last_name %>
+            <%= link_to (user.first_name + " " + user.last_name), user_path(user.id)%>
+            
         </div>
         <div class="card-body">   
             <%= button_to "Send friend request", friend_requests_path, method: :post, params: { recipient_id: user.id }, class:"btn btn-primary btn-sm", style: "margin-left: 10px"%>

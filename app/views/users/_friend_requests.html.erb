@@ -4,7 +4,8 @@
   <% current_user.friend_invitations.each do |invitation| %>
     <div class="card" style="margin: 10px;">
       <div class="card-header">
-        <%= User.find(invitation.requester_id).first_name %>  <%= User.find(invitation.requester_id).last_name %>
+        <%= link_to (User.find(invitation.requester_id).first_name + " " + User.find(invitation.requester_id).last_name), user_path(invitation.requester_id) %>
+        
       </div>  
       <div class="card-body">
         <%= button_to "Accept friend request", friendships_path, method: :post, params: { friend_b_id: User.find(invitation.requester_id).id }, class:"btn btn-success" %>
