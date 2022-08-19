@@ -64,7 +64,7 @@
     </div>
   </div>
   <br>
-  <% unless current_user.friend_already_requested?(@user.id, current_user.id) %>
+  <% unless current_user.friend_already_requested?(@user.id, current_user.id) || current_user.friend_already_invited?(@user.id, current_user.id)%>
   
     <%= button_to "Send friend request", friend_requests_path, method: :post, params: { recipient_id: @user.id }, class:"btn btn-primary"%>
     <br>
