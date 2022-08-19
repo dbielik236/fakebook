@@ -4,7 +4,7 @@
     current_user.friend_invitations.where(requester_id: user.id)[0].nil? == false ||
     current_user.friend_requests.where(recipient_id: user.id)[0].nil? == false ||
     user.friend?(user.id, current_user.id) %>     
-     <div class="card" style="margin: 10px; width: 18rem">
+     <div class="card" style="margin: 10px;">
         <div class="card-header">
             <%= user.first_name %> <%= user.last_name %>
         </div>

@@ -1,12 +1,19 @@
 <% user.friends(user.id).each do |friend| %>
-  <div class="card" style="width: 18rem">
-    <div class="card-body" style="padding: 10px">
-    <% if user.id == friend.friend_a_id %>
-      <%= link_to (User.find(friend.friend_b_id).first_name + " " + User.find(friend.friend_b_id).last_name), user_path(friend.friend_b_id)%>
-    <% else %>
-      <%= link_to (User.find(friend.friend_a_id).first_name + " " + User.find(friend.friend_a_id).last_name), user_path(friend.friend_a_id)%>
-    <% end %>
+  <div class="card" style="margin: 10px;">
+    <div class="card-header">
+      <% if user.id == friend.friend_a_id %>
+        <%= link_to (User.find(friend.friend_b_id).first_name + " " + User.find(friend.friend_b_id).last_name), user_path(friend.friend_b_id)%>
+      <% else %>
+        <%= link_to (User.find(friend.friend_a_id).first_name + " " + User.find(friend.friend_a_id).last_name), user_path(friend.friend_a_id)%>
+      <% end %>
+    </div>
+    <div class="card-body">
+      <% if user.id == friend.friend_a_id %>
+        <%= link_to "View profile", user_path(friend.friend_b_id), class: "btn btn-primary" %>
+      <% else %>
+        <%= link_to "View profile", user_path(friend.friend_a_id), class: "btn btn-primary" %>
+      <% end %>
     </div>
   </div>
-  <br>
+  
 <% end %>

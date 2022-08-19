@@ -1,15 +1,15 @@
 <% if current_user.friend_invitations[0].nil? %>
     <p>You don't have any pending friend requests right now.</p>
 <% else %>    
-    <% current_user.friend_invitations.each do |invitation| %>
-      <div class="card" style="width: 18rem">
-        <div class="card-header" style="padding: 10px">
-          <%= User.find(invitation.requester_id).first_name %>  <%= User.find(invitation.requester_id).last_name %>
-        </div>  
-        <div class="card-body">
-         <%= button_to "Accept Friend Request", friendships_path, method: :post, params: { friend_b_id: User.find(invitation.requester_id).id }, class:"btn btn-success" %>
-        </div>
+  <% current_user.friend_invitations.each do |invitation| %>
+    <div class="card" style="margin: 10px;">
+      <div class="card-header">
+        <%= User.find(invitation.requester_id).first_name %>  <%= User.find(invitation.requester_id).last_name %>
+      </div>  
+      <div class="card-body">
+        <%= button_to "Accept friend request", friendships_path, method: :post, params: { friend_b_id: User.find(invitation.requester_id).id }, class:"btn btn-success" %>
       </div>
-      <br>
+    </div>
+    <br>
   <% end %>
 <% end %> 
