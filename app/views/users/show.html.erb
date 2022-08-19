@@ -17,7 +17,11 @@
           <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Posts</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false"> My Friends</a>
+          <% if @user == current_user %>
+            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false"> My Friends</a>
+          <% else %>
+            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false"> Friends</a>
+          <% end %>  
         </li>
       </ul>
       <div class="tab-content" id="myTabContent">
@@ -38,14 +42,11 @@
           <% @user.posts.each do |post| %>
             <%= render post %>
           <% end %>
-          <br>
         </div>
-      
         <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
           <br>
           <%= render 'friends', user: @user %>
         </div>
-      
       </div>
     </div>
   </div>
@@ -56,7 +57,6 @@
       <% unless @user.location == "" || @user.location == nil %>
         <p>Lives in <strong><%= @user.location %></p></strong>
       <% end %>
-
       <% unless @user.birthday == "" || @user.birthday == nil %>
         <p>Birthday <strong><%= @user.birthday.strftime("%B %d, %Y") %></p></strong>
       <% end %>
