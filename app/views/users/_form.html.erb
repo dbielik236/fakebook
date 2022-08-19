@@ -1,64 +1,77 @@
-<%= form_with(model: user) do |form| %>
-  <% if user.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this friend from being saved:</h2>
-
-      <ul>
-        <% user.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+<div class="card text-center mx-auto shadow-sm" style="width: 20rem;">
+  <h2 class="card-header">Update profile</h2>
+    <div class="card-body"> 
+      <%= form_with(model: user) do |form| %>
+        <% if user.errors.any? %>
+          <div style="color: red">
+            <h2><%= pluralize(user.errors.count, "error") %> prohibited this friend from being saved:</h2>
+      
+            <ul>
+              <% user.errors.each do |error| %>
+                <li><%= error.full_message %></li>
+              <% end %>
+            </ul>
+          </div>
         <% end %>
-      </ul>
+        <em><p> All information is optional </p></em>
+        <div class="field">
+          <%= form.text_field :first_name,  
+                              autocomplete: "first_name", 
+                              class:'form-control'%>
+        </div>
+        <br>
+        <div class="field">
+          
+          <%= form.text_field :last_name,  
+                              autocomplete: "last_name", 
+                              class:'form-control'%>
+        </div>
+        <br>
+        <div class="field">
+          <%= form.text_field :location,  
+                              autocomplete: "location",
+                              placeholder: "Where do you live?", 
+                              class:'form-control'%>
+        </div>
+        <br>
+        <div class="field">
+          <%= form.text_field :origin,  
+                              autocomplete: "origin",
+                              placeholder: "Where did you grow up?",
+                              class:'form-control' %>
+        </div>
+        <br>
+        <div class="field">
+          <%= form.text_field :occupation,  
+                              autocomplete: "occupation",
+                              placeholder: "Where do you work?",
+                              class:'form-control' %>
+        </div>
+        <br>
+        <div class="field">
+          <%= form.text_field :education,  
+                              autocomplete: "education",
+                              placeholder: "Where did you go to school?",
+                              class:'form-control' %>
+        </div>
+        <br>
+        <div class="field">
+        <%= form.label "Birthday"%>
+        <%= form.date_field :birthday,  
+                             autocomplete: "birthday",
+                             placeholder: "Birthday",
+                             class:'form-control' %>
+        </div>
+        <br>
+        <div class="actions">
+          <%= form.submit "Update", class:'btn btn-primary'%>
+          <% if current_user.posts.empty? %> 
+            <%= link_to "Skip for now", root_path, class:'btn btn-secondary'%>
+          <% else %>  
+            <%= link_to "Back", :back, class:'btn btn-secondary'%>
+          <% end %>
+        </div>
+      <% end %>
     </div>
-  <% end %>
-  <br>
-  <div class="field">
-    <%= form.text_field :first_name,  
-                        autocomplete: "first_name", 
-                        class:'form-control'%>
   </div>
-  <br>
-  <div class="field">
-    
-    <%= form.text_field :last_name,  
-                        autocomplete: "last_name", 
-                        class:'form-control'%>
-  </div>
-  <br>
-  <div class="field">
-    <%= form.text_field :location,  
-                        autocomplete: "location",
-                        placeholder: "Where do you live?", 
-                        class:'form-control'%>
-  </div>
-  <br>
-  <div class="field">
-    <%= form.text_field :origin,  
-                        autocomplete: "origin",
-                        placeholder: "Where did you grow up?",
-                        class:'form-control' %>
-  </div>
-  <br>
-  <div class="field">
-    <%= form.text_field :occupation,  
-                        autocomplete: "occupation",
-                        placeholder: "Where do you work?",
-                        class:'form-control' %>
-  </div>
-  <br>
-  <div class="field">
-    <%= form.text_field :education,  
-                        autocomplete: "education",
-                        placeholder: "Where did you go to school?",
-                        class:'form-control' %>
-  </div>
-  <br>
-  <div class="field">
-    <%= form.date_field :birthday,  
-                        autocomplete: "birthday",
-                        class:'form-control' %>
-  </div>
-  <br>
-  <div class="actions">
-    <%= form.submit class:'btn btn-secondary'%>
-  </div>
-<% end %>
+</div>

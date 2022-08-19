@@ -59,9 +59,11 @@
       <% unless @user.birthday == "" || @user.birthday == nil %>
         <p>Birthday <strong><%= @user.birthday.strftime("%B %d, %Y") %></p></strong>
       <% end %>
-
-      <%= button_to "Send friend request", friend_requests_path, method: :post, params: { recipient_id: @user.id }, class:"btn btn-primary btn-sm", style: "margin-left: 10px"%>
     </div>
   </div>
+  <br>
+  <%= button_to "Send friend request", friend_requests_path, method: :post, params: { recipient_id: @user.id }, class:"btn btn-primary"%>
+  <br>
+  <%= link_to "Back", :back, class:"btn btn-secondary" %>
 <% end %>
 
