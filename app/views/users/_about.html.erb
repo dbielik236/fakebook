@@ -1,5 +1,7 @@
 <div class="card">
   <div class="card-body">
+    <h2 class="card-header">Info</h2>
+      <br>
       <% if current_user == user && user.description == nil %>
         <%= form_with(model: user) do |form| %>
           <div class="form-group">
@@ -36,7 +38,7 @@
         <% end %>
       <% else %>  
         <% unless user.description == "" || user.description== nil %>
-          <p>"<%= user.description %>"</p>
+          <p><%= user.description %></p>
         <% end %>
       <% end %>
 
