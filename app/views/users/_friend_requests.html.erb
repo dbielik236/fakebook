@@ -2,7 +2,7 @@
     <p>You don't have any pending friend requests right now.</p>
 <% else %>    
     <% current_user.friend_invitations.each do |invitation| %>
-      <div class="card" style="width: 20rem">
+      <div class="card" style="width: 18rem">
         <div class="card-header" style="padding: 10px">
           <%= User.find(invitation.requester_id).first_name %>  <%= User.find(invitation.requester_id).last_name %>
         </div>  

@@ -3,6 +3,8 @@
       <div class="card-body" style="padding:8px">
         <strong><%= link_to (User.find(comment.user_id).first_name + " " + User.find(comment.user_id).last_name), user_path(comment.user_id) %></strong>
         <%= comment.body %>
+        <br>
+        <small class="text-muted"><%= comment.created_at.strftime("%B %d, %Y at %l:%M %P") %></small>
       </div>  
     </div>
 <% end %>

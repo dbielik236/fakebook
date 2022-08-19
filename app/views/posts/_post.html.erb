@@ -1,12 +1,12 @@
 <div id="<%= dom_id post %>">
 
-  <div class="card">
+  <div class="card shadow-sm">
     <div class="card-header bg-white">
     
       <strong><%= link_to (post.user.first_name + " " + post.user.last_name), user_path(post.user.id)%></strong>
       <br>
       
-      <%= post.created_at.strftime("%B %d, %Y at %l:%M %P") %>
+      <small class="text-muted"><%= post.created_at.strftime("%B %d, %Y at %l:%M %P") %></small>
     </div>
     <div class="card-body">
     <p class="card-text"><%= post.body %></p>

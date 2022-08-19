@@ -1,0 +1,19 @@
+<div class="card">
+  <div class="card-body">
+    <% unless user.location == "" || user.location == nil %>
+      <p>Lives in <strong><%= user.location %></p></strong>
+    <% end %>
+    <% unless user.origin == "" || user.origin == nil %>
+      <p>From <strong><%= user.origin %></p></strong>
+    <% end %>
+    <% unless user.occupation == "" || user.occupation == nil %>
+      <p>Works at <strong><%= user.occupation %></p></strong>
+    <% end %>
+    <% unless user.education == "" || user.education == nil %>
+      <p>Studied at <strong><%= user.education %></p></strong>
+    <% end %>
+    <% unless user.birthday == "" || user.birthday == nil %>
+      <p>Birthday <strong><%= user.birthday.strftime("%B %d, %Y") %></p></strong>
+    <% end %>
+  </div>
+</div>

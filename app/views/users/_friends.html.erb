@@ -1,5 +1,5 @@
 <% user.friends(user.id).each do |friend| %>
-  <div class="card" style="width: 20rem">
+  <div class="card" style="width: 18rem">
     <div class="card-body" style="padding: 10px">
     <% if user.id == friend.friend_a_id %>
       <%= link_to (User.find(friend.friend_b_id).first_name + " " + User.find(friend.friend_b_id).last_name), user_path(friend.friend_b_id)%>

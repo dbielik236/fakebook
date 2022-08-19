@@ -13,13 +13,16 @@
           <li class="nav-item">
             <%= link_to 'Home', root_path, class:"btn btn-link nav-link" %>
           </li>
-          <li class="nav-item">
-            <%= link_to 'Friends', users_path, class:"btn btn-link nav-link" %>
-          </li>
-          <% unless current_user.friend_invitations.count == 0 %>
+          
+          <% if current_user.friend_invitations.count == 0 %>
             <li class="nav-item">
-              <span class="badge badge-light"> <%= current_user.friend_invitations.count %> </span>
+              <%= link_to "Friends", users_path, class:"btn btn-link nav-link" %>
             </li>
+          <% else %>  
+            <%= link_to users_path, class: 'btn btn-link nav-link' do %>
+              <div>
+              Friend Requests - <span class="badge badge-primary"><%= current_user.friend_invitations.count %></span></div>
+          <% end %>
           <% end %>
           <li class="nav-item">
             <%= link_to 'Profile', user_path(current_user.id), class:"btn btn-link nav-link" %>
