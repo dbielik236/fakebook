@@ -44,4 +44,14 @@ class User < ApplicationRecord
     list_a[0].nil? == false || list_b[0].nil? == false
   end
 
+  def friend_already_requested?(user_id, current_user_id)
+    list = []
+    User.find(current_user_id).friend_requests.each do |request|
+      if user_id == request.recipient_id 
+        list << request.recipient_id
+      end
+    end
+    list[0].nil? == false
+  end
+
 end

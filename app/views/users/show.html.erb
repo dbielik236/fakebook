@@ -62,8 +62,11 @@
     </div>
   </div>
   <br>
-  <%= button_to "Send friend request", friend_requests_path, method: :post, params: { recipient_id: @user.id }, class:"btn btn-primary"%>
-  <br>
+  <% unless current_user.friend_already_requested?(@user.id, current_user.id) %>
+  
+    <%= button_to "Send friend request", friend_requests_path, method: :post, params: { recipient_id: @user.id }, class:"btn btn-primary"%>
+    <br>
+  <% end %>
   <%= link_to "Back", :back, class:"btn btn-secondary" %>
 <% end %>
 
