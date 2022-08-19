@@ -51,6 +51,7 @@
   </div>
 <% else %>
   <div class="card">
+    <h2 class="card-header">Info</h2>
     <div class="card-body">
       <% unless @user.location == "" || @user.location == nil %>
         <p>Lives in <strong><%= @user.location %></p></strong>
@@ -59,6 +60,7 @@
       <% unless @user.birthday == "" || @user.birthday == nil %>
         <p>Birthday <strong><%= @user.birthday.strftime("%B %d, %Y") %></p></strong>
       <% end %>
+      <br>
     </div>
   </div>
   <br>
