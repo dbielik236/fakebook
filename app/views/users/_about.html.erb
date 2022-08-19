@@ -4,7 +4,7 @@
       <p>Lives in <strong><%= user.location %></p></strong>
     <% end %>
     <% unless user.origin == "" || user.origin == nil %>
-      <p>From <strong><%= user.origin %></p></strong>
+      <p>From <strong><%= @user.origin %></p></strong>
     <% end %>
     <% unless user.occupation == "" || user.occupation == nil %>
       <p>Works at <strong><%= user.occupation %></p></strong>
