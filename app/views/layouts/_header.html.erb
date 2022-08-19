@@ -16,7 +16,7 @@
           
           <% if current_user.friend_invitations.count == 0 %>
             <li class="nav-item">
-              <%= link_to "Friends", users_path, class:"btn btn-link nav-link" %>
+              <%= link_to "Find Friends", users_path, class:"btn btn-link nav-link" %>
             </li>
           <% else %>  
             <%= link_to users_path, class: 'btn btn-link nav-link' do %>

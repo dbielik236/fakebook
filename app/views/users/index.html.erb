@@ -16,10 +16,7 @@
         <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Sent</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Friends</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#friends" role="tab" aria-controls="friends" aria-selected="false">Find</a>
+        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#friends" role="tab" aria-controls="friends" aria-selected="false">Suggestions</a>
       </li>
     </ul>
     <div class="tab-content" id="myTabContent">
@@ -32,11 +29,6 @@
         <br>
         <%= render 'sent_requests' %>
         <br>
-      </div>
-    
-      <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-        <br>
-        <%= render 'friends', user: current_user %>
       </div>
     
       <div class="tab-pane fade" id="friends" role="tabpanel" aria-labelledby="contact-tab">
