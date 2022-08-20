@@ -3,6 +3,28 @@
     <div class="card-body">
       <h2> <%= @user.first_name%> <%= @user.last_name%></h2>
       <p> <%= @user.friends(@user.id).count %> friends </p>
+      <% if @user == current_user %>
+        <%= link_to "Update profile", edit_user_path,class: "btn btn-primary" %>
+      <% elsif current_user.friend?(@user.id, current_user.id) %>
+        <div class="btn btn-primary"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-check-fill" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M15.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L12.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+          <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+          </svg>
+          Friends
+        </div> 
+       <% elsif current_user.friend_already_requested?(@user.id, current_user.id) %>
+        <div class="btn btn-primary"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-check-fill" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M15.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L12.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+          <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+          </svg>
+          Request sent
+        </div> 
+       <% elsif current_user.friend_already_invited?(@user.id, current_user.id) %>
+         <%= link_to "Accept friend request", users_path(current_user.id), class:"btn btn-success" %>
+       <% else %>
+         <%= button_to "Send friend request", friend_requests_path, method: :post, params: { recipient_id: @user.id }, class:"btn btn-primary"%>
+       <% end %> 
+
     </div>
   </div>
 <br>
@@ -30,15 +52,9 @@
           <%= render 'about', user: @user %>
           <% if current_user == @user %>
             <br>
-            <%= link_to "Update profile", edit_user_path,class: "btn btn-primary" %>
-            <br>
-            <br>
             <%= link_to 'Update account information', edit_user_registration_path, class: "btn btn-dark" %>
-            
           <% end %>
-          
         </div>
-      
         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
           <br>
           <% @user.posts.each do |post| %>
@@ -74,11 +90,6 @@
   <br>  
 <div class="card shadow-sm mx-auto" style="max-width:600px"> 
   <div class="card-body">
-    <% unless current_user.friend_already_requested?(@user.id, current_user.id) || current_user.friend_already_invited?(@user.id, current_user.id)%>
-      <%= button_to "Send friend request", friend_requests_path, method: :post, params: { recipient_id: @user.id }, class:"btn btn-primary"%>
-      <br>
-    <% end %>
-    
     <%= link_to "Back", :back, class: "btn btn-secondary" %>
    </div>
 </div>

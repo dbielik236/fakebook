@@ -6,8 +6,10 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-  def show
-    
+  def create
+  end
+
+  def show  
   end
 
   def update
