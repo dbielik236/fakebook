@@ -1,4 +1,4 @@
-<nav class="navbar navbar-collapse navbar-expand-sm bg-primary navbar-dark">
+<nav class="navbar navbar-expand-lg bg-primary navbar-dark">
   <div class="container-fluid">
     <%= link_to 'fakebook', root_path, class:"navbar-brand" %>
     
@@ -8,7 +8,6 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-        
         <% if user_signed_in? %>
           <li class="nav-item">
             <%= link_to 'Home', root_path, class:"btn btn-link nav-link" %>
@@ -22,7 +21,7 @@
             <%= link_to users_path, class: 'btn btn-link nav-link' do %>
               <div>
               Friend Requests <span class="badge bg-white text-secondary"><%= current_user.friend_invitations.count %></span></div>
-          <% end %>
+            <% end %>
           <% end %>
           <li class="nav-item">
             <%= link_to 'Profile', user_path(current_user.id), class:"btn btn-link nav-link" %>
