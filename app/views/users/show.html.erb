@@ -5,7 +5,7 @@
       <p> <%= @user.friends(@user.id).count %> friends </p>
     </div>
   </div>
-  <br>
+<br>
 <% if current_user.friend?(@user.id, current_user.id) || current_user == @user %>
   <div class="card shadow-sm mx-auto" style="max-width:600px">
     <div class="card-body">
@@ -34,10 +34,9 @@
             <br>
             <br>
             <%= link_to 'Update account information', edit_user_registration_path, class: "btn btn-secondary" %>
-            <br>
-            <br>
-            <%= link_to "Back", :back, class:"btn btn-secondary mb-3" %>
+            
           <% end %>
+          
         </div>
       
         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
@@ -54,7 +53,7 @@
     </div>
   </div>
 <% else %>
-  <div class="card">
+  <div class="card shadow-sm mx-auto" style="max-width:600px">
     <h2 class="card-header">Info</h2>
     <div class="card-body">
       <% unless @user.location == "" || @user.location == nil %>
@@ -63,11 +62,16 @@
       <% unless @user.birthday == "" || @user.birthday == nil %>
         <p>Birthday <strong><%= @user.birthday.strftime("%B %d, %Y") %></p></strong>
       <% end %>
-      <br>
     </div>
   </div>
-  <br>
+  
   <% unless current_user.friend_already_requested?(@user.id, current_user.id) || current_user.friend_already_invited?(@user.id, current_user.id)%>
     <%= button_to "Send friend request", friend_requests_path, method: :post, params: { recipient_id: @user.id }, class:"btn btn-primary"%>
   <% end %>
 <% end %>
+<br>
+<div class="card shadow-sm mx-auto" style="max-width:600px">
+  <div class="card-body">
+  <%= link_to "Back", :back, class: "btn btn-secondary" %>
+  </div>
+</div>

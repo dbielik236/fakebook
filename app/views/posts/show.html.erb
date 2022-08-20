@@ -1,6 +1,6 @@
-<div class="card">
+<div class="card shadow-sm mx-auto mb-3" style="max-width:600px">
   <div class="card-header">
-    <%= link_to (@post.user.first_name + " " + @post.user.last_name), user_path(@post.user.id)%>
+    <strong><%= link_to (@post.user.first_name + " " + @post.user.last_name), user_path(@post.user.id)%></strong>
     <br>
     <%= @post.created_at.in_time_zone("America/New_York").strftime("%B %d, %Y at %l:%M %P %Z") %>
   </div>
@@ -10,10 +10,13 @@
     <%= render 'comments/form', comment: @post.comments.build, submit: 'Comment' %>
   </div>
 </div>  
-<div>
+<div class="card shadow-sm mx-auto mb-3" style="max-width:600px">
+  <div class="card-body">
+  <%= link_to "Back to posts", posts_path , class: "btn btn-secondary" %>
   <% if @post.user.id == current_user.id %>
+    <br>
+    <br>
     <%= button_to "Delete post", @post, method: :delete, class: "btn btn-danger" %>
   <% end %>
-  <br>
-  <%= link_to "Back to feed", posts_path , class: "btn btn-secondary" %>
+  </div>
 </div>
