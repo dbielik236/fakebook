@@ -28,19 +28,19 @@
         <% end %>
       <% end %>
     <% unless user.location == "" || user.location == nil %>
-      <p>Lives in <strong><%= user.location %></p></strong>
+      <p>Lives in <strong><%= user.location %></strong></p>
     <% end %>
     <% unless user.origin == "" || user.origin == nil %>
-      <p>From <strong><%= @user.origin %></p></strong>
+      <p>From <strong><%= @user.origin %></strong></p>
     <% end %>
     <% unless user.occupation == "" || user.occupation == nil %>
-      <p>Works at <strong><%= user.occupation %></p></strong>
+      <p>Works at <strong><%= user.occupation %></strong></p>
     <% end %>
     <% unless user.education == "" || user.education == nil %>
-      <p>Studied at <strong><%= user.education %></p></strong>
+      <p>Studied at <strong><%= user.education %></strong></p>
     <% end %>
     <% unless user.birthday == "" || user.birthday == nil %>
-      <p>Birthday - <strong><%= user.birthday.strftime("%B %d, %Y") %></p></strong>
+      <p>Birthday - <strong><%= user.birthday.strftime("%B %d, %Y") %></strong></p>
     <% end %>
     
   </div>
