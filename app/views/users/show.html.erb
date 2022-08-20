@@ -64,7 +64,8 @@
       <% end %>
     </div>
   </div>
-<% end %>  
+<% end %>
+<br>  
 <div class="card shadow-sm mx-auto" style="max-width:600px"> 
   <div class="card-body">
     <% unless current_user.friend_already_requested?(@user.id, current_user.id) || current_user.friend_already_invited?(@user.id, current_user.id)%>
