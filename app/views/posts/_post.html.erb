@@ -1,6 +1,6 @@
 <div id="<%= dom_id post %>">
 
-  <div class="card shadow-sm">
+  <div class="card shadow-sm mx-auto" style="max-width:600px">
     <div class="card-header bg-white">
     
       <strong><%= link_to (post.user.first_name + " " + post.user.last_name), user_path(post.user.id)%></strong>

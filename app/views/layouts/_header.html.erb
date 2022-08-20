@@ -21,7 +21,7 @@
           <% else %>  
             <%= link_to users_path, class: 'btn btn-link nav-link' do %>
               <div>
-              Friend Requests - <span class="badge badge-primary"><%= current_user.friend_invitations.count %></span></div>
+              Friend Requests <span class="badge bg-white text-secondary"><%= current_user.friend_invitations.count %></span></div>
           <% end %>
           <% end %>
           <li class="nav-item">

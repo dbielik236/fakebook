@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card shadow-sm mx-auto" style="max-width:600px">
   <div class="card-body">
     <h2> <%= current_user.first_name%> <%= current_user.last_name%></h2>
     <p> <%= current_user.friends(current_user.id).count %> friends </p>
@@ -6,7 +6,7 @@
 </div>
 <br>
 
-<div class="card">
+<div class="card shadow-sm mx-auto" style="max-width:600px">
   <div class="card-body">
     <ul class="nav nav-tabs" id="myTab" role="tablist">
       <li class="nav-item">

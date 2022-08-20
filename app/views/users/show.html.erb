@@ -1,5 +1,5 @@
 
-  <div class="card">
+  <div class="card shadow-sm mx-auto" style="max-width:600px">
     <div class="card-body">
       <h2> <%= @user.first_name%> <%= @user.last_name%></h2>
       <p> <%= @user.friends(@user.id).count %> friends </p>
@@ -7,7 +7,7 @@
   </div>
   <br>
 <% if current_user.friend?(@user.id, current_user.id) || current_user == @user %>
-  <div class="card">
+  <div class="card shadow-sm mx-auto" style="max-width:600px">
     <div class="card-body">
       <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item">
@@ -34,6 +34,9 @@
             <br>
             <br>
             <%= link_to 'Update account information', edit_user_registration_path, class: "btn btn-secondary" %>
+            <br>
+            <br>
+            <%= link_to "Back", :back, class:"btn btn-secondary mb-3" %>
           <% end %>
         </div>
       
@@ -68,5 +71,3 @@
     <%= button_to "Send friend request", friend_requests_path, method: :post, params: { recipient_id: @user.id }, class:"btn btn-primary"%>
   <% end %>
 <% end %>
-<br>
-<%= link_to "Back", :back, class:"btn btn-secondary mb-3" %>
