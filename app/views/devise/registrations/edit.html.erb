@@ -51,10 +51,10 @@
         <div class="card-header">
           Cancel My Account
         </div>
-        <div class="card-body">
+        <div class="card-body" data-controller="posts">
           <h5 class="card-title">Warning!</h5>
           <p class="card-text"> This action cannot be undone</p>
-          <%= button_to "Delete account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-danger' %>
+          <%= button_to "Delete account", registration_path(resource_name), data: { action: "click->posts#delete" }, method: :delete, class: 'btn btn-danger' %>
         </div>
       </div>
     </div>
