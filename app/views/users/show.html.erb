@@ -33,7 +33,7 @@
             <%= link_to "Update profile", edit_user_path,class: "btn btn-primary" %>
             <br>
             <br>
-            <%= link_to 'Update account information', edit_user_registration_path, class: "btn btn-secondary" %>
+            <%= link_to 'Update account information', edit_user_registration_path, class: "btn btn-dark" %>
             
           <% end %>
           
@@ -52,6 +52,13 @@
       </div>
     </div>
   </div>
+<br>
+<div class="card shadow-sm mx-auto" style="max-width:600px"> 
+  <div class="card-body">
+    <%= link_to "Back", :back, class: "btn btn-secondary" %>
+   </div>
+</div>
+<br>  
 <% else %>
   <div class="card shadow-sm mx-auto" style="max-width:600px">
     <h2 class="card-header">Info</h2>
@@ -64,14 +71,15 @@
       <% end %>
     </div>
   </div>
-<% end %>
-<br>  
+  <br>  
 <div class="card shadow-sm mx-auto" style="max-width:600px"> 
   <div class="card-body">
     <% unless current_user.friend_already_requested?(@user.id, current_user.id) || current_user.friend_already_invited?(@user.id, current_user.id)%>
       <%= button_to "Send friend request", friend_requests_path, method: :post, params: { recipient_id: @user.id }, class:"btn btn-primary"%>
       <br>
     <% end %>
+    
     <%= link_to "Back", :back, class: "btn btn-secondary" %>
    </div>
 </div>
+<% end %>
