@@ -24,6 +24,25 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    if Friendship.find_by(friend_b_id: current_user.id, friend_a_id: @user.id).nil?
+      @friendship = Friendship.destroy_by(friend_a_id: current_user.id, friend_b_id: @user.id)
+      respond_to do |format|
+        
+          format.html { redirect_to user_url(@user), notice: "Unfriend successful." }
+          format.json { render :show, status: :ok, location: @user }
+      end
+    elsif Friendship.find_by(friend_a_id: current_user.id, friend_b_id: @user.id).nil?
+      @friendship = Friendship.destroy_by(friend_b_id: current_user.id, friend_a_id: @user.id)
+      respond_to do |format|
+        
+          format.html { redirect_to user_url(@user), notice: "Unfriend successful." }
+          format.json { render :show, status: :ok, location: @user }
+        
+      end
+    end
+  end
+
   private
 
   def set_user
