@@ -10,6 +10,11 @@ class FriendRequestsController < ApplicationController
       redirect_back fallback_location: user_url(current_user), alert: "Sorry, your request could not be completed. (#{friend_request.errors.full_messages.join(', ')}.)"
     end
   end
+
+  def destroy
+    @friend_request.destroy
+  end
+
   
   private
 

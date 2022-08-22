@@ -9,7 +9,8 @@ class UsersController < ApplicationController
   def create
   end
 
-  def show  
+  def show
+    @friend_request 
   end
 
   def update
@@ -38,7 +39,6 @@ class UsersController < ApplicationController
         
           format.html { redirect_to user_url(@user), notice: "Unfriend successful." }
           format.json { render :show, status: :ok, location: @user }
-        
       end
     end
   end
