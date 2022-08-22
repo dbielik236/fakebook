@@ -8,7 +8,7 @@
       <% elsif current_user.friend?(@user.id, current_user.id) %>
       <div class="container-fluid">
         <div class="row">
-          <div class="btn btn-primary col-3"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-check-fill" viewBox="0 0 16 16">
+          <div class="btn btn-secondary col-3" style="pointer-events: none"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-check-fill" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M15.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L12.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
             <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
             </svg>
@@ -17,8 +17,8 @@
           <div class="col-6" data-controller="posts">
             <%= button_to @friendship, method: :delete, class: "btn btn-danger", data: { action: "click->posts#delete" } do %>
                 <span>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
-                    <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"/>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-x-fill" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6.146-2.854a.5.5 0 0 1 .708 0L14 6.293l1.146-1.147a.5.5 0 0 1 .708.708L14.707 7l1.147 1.146a.5.5 0 0 1-.708.708L14 7.707l-1.146 1.147a.5.5 0 0 1-.708-.708L13.293 7l-1.147-1.146a.5.5 0 0 1 0-.708z"/>
                   </svg> Unfriend 
                 </span>
             <% end %> 
@@ -26,7 +26,7 @@
         </div>  
       </div>
       <% elsif current_user.friend_already_requested?(@user.id, current_user.id) %>
-        <div class="btn btn-primary"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-check-fill" viewBox="0 0 16 16">
+        <div class="btn btn-secondary" style="pointer-events: none"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-check-fill" viewBox="0 0 16 16">
           <path fill-rule="evenodd" d="M15.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L12.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
           <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
           </svg>
@@ -82,13 +82,12 @@
       </div>
     </div>
   </div>
-<br>
+<br>  
 <div class="card shadow-sm mx-auto" style="max-width:600px"> 
   <div class="card-body">
-    <%= link_to "Back", :back, class: "btn btn-secondary" %>
+    <%= link_to "Home", root_path, class: "btn btn-secondary" %>
    </div>
 </div>
-<br>  
 <% else %>
   <div class="card shadow-sm mx-auto" style="max-width:600px">
     <h2 class="card-header">Info</h2>
@@ -104,7 +103,7 @@
   <br>  
 <div class="card shadow-sm mx-auto" style="max-width:600px"> 
   <div class="card-body">
-    <%= link_to "Back", :back, class: "btn btn-secondary" %>
+    <%= link_to "Home", root_path, class: "btn btn-secondary" %>
    </div>
 </div>
 <% end %>

@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users
   resources :friend_requests
-  resources :friendships
+  resources :friendships, only: [:create, :destroy]
   resources :comments
   
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
