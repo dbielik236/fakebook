@@ -17,12 +17,11 @@
               <%= link_to "Find Friends", users_path, class:"btn btn-link nav-link" %>
             </li>
           <% else %>
-          <li class="nav-item">  
-            <%= link_to users_path, class: 'btn btn-link nav-link' do %>
-              <div>
-              Friend Requests <span class="badge bg-white text-secondary"><%= current_user.friend_invitations.count %></span></div>
-            <% end %>
-          </li> 
+            <li class="nav-item">  
+              <%= link_to users_path, class: 'btn btn-link nav-link' do %>
+                Friend Requests <span class="badge bg-white text-secondary"><%= current_user.friend_invitations.count %></span>
+              <% end %>
+            </li> 
           <% end %>
           <li class="nav-item">
             <%= link_to 'Profile', user_path(current_user.id), class:"btn btn-link nav-link" %>
@@ -30,14 +29,13 @@
           <li class="nav-item text-center">
             <%= button_to("Log Out", destroy_user_session_path, class:"btn btn-link nav-link mx-auto", method: :delete) %>
           </li>
-           
         <% else %>
           <li class="nav-item">
-            <%= link_to 'Log In', new_user_session_path, class:"btn btn-link nav-link " %>
+            <%= link_to 'Log In', new_user_session_path, class:"btn btn-link nav-link" %>
           </li>
   
            <li class="nav-item">
-            <%= link_to 'Sign Up', new_user_registration_path, class:"btn btn-link nav-link "%>
+            <%= link_to 'Sign Up', new_user_registration_path, class:"btn btn-link nav-link" %>
           </li>
         <% end %>
       </ul>
