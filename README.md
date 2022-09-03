@@ -11,7 +11,7 @@ This app is intended to mimic Facebook's friending, posting, and commenting abil
   <li> A dashboard displays all sent requests and friend requests to accept from other users
   <li> User's profile is updatable and can only seen (in full) by friends
   <li> The user's "news feed" shows all posts of user and friends of user
-  <li> Users can comment on posts of their own or friends
+  <li> Users can comment on posts of their own or of their friends
   <li> Users can delete friendships, posts, comments, and even their full account
  </ul>
   
@@ -26,7 +26,7 @@ If I were to expand the capabilities of the app, I could add the ability to comm
 ## Live Preview
 
 **Access the app here:** https://blooming-temple-89582.herokuapp.com/users/sign_in
-<br>_(please allow approx. 30 seconds for the dyno to load)_
+<br>_(please allow up to 30 seconds for the dyno to load)_
 
 You can use the following log in for a quick look at the functionality of the app:
 <br>**Email:** `guest@gmail.com`
