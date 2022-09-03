@@ -2,6 +2,8 @@
 
 This app is intended to mimic Facebook's friending, posting, and commenting abilities, as well as a "news feed" that shows the posts of the user and all of their friends. It was built using Ruby on Rails and styled with Bootstrap. In all, it took me about two weeks to complete, with about a day for thinking through the associations and models before starting to write the code, and then a few days of debugging/final details/final styling touches at the end. The application suffers from the absence of JavaScript, but still has an overall nice feel and look to it. It is responsive and displays well on a variety of screen sizes.
 
+![Screen Shot 2022-09-03 at 2 45 05 PM](https://user-images.githubusercontent.com/95592670/188284156-b0b014d3-78a0-49b5-9017-5fde7ffdb97e.png)
+
 ## Features
 <ul> 
   <li> Users must sign up or log in to view anything in their account (uses Devise gem)
